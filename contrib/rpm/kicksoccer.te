@@ -1,0 +1,81 @@
+policy_module(kicksoccer, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type kicksoccer_t;
+type kicksoccer_exec_t;
+init_daemon_domain(kicksoccer_t, kicksoccer_exec_t)
+
+permissive kicksoccer_t;
+
+type kicksoccer_initrc_exec_t;
+init_script_file(kicksoccer_initrc_exec_t)
+
+type kicksoccer_conf_t;
+files_type(kicksoccer_conf_t)
+
+type kicksoccer_var_lib_t;
+files_type(kicksoccer_var_lib_t)
+
+type kicksoccer_var_run_t;
+files_type(kicksoccer_var_run_t)
+
+type kicksoccer_port_t;
+corenet_port(kicksoccer_port_t)
+
+########################################
+#
+# kicksoccer local policy
+#
+allow kicksoccer_t self:process { fork };
+
+allow kicksoccer_t self:fifo_file rw_fifo_file_perms;
+allow kicksoccer_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(kicksoccer_t, kicksoccer_conf_t, kicksoccer_conf_t)
+manage_files_pattern(kicksoccer_t, kicksoccer_conf_t, kicksoccer_conf_t)
+
+manage_dirs_pattern(kicksoccer_t, kicksoccer_var_lib_t, kicksoccer_var_lib_t)
+manage_files_pattern(kicksoccer_t, kicksoccer_var_lib_t, kicksoccer_var_lib_t)
+files_var_lib_filetrans(kicksoccer_t, kicksoccer_var_lib_t, { dir file })
+
+manage_dirs_pattern(kicksoccer_t, kicksoccer_var_run_t, kicksoccer_var_run_t)
+manage_files_pattern(kicksoccer_t, kicksoccer_var_run_t, kicksoccer_var_run_t)
+
+sysnet_dns_name_resolve(kicksoccer_t)
+corenet_all_recvfrom_unlabeled(kicksoccer_t)
+
+allow kicksoccer_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(kicksoccer_t)
+corenet_tcp_sendrecv_generic_node(kicksoccer_t)
+corenet_tcp_sendrecv_all_ports(kicksoccer_t)
+corenet_tcp_bind_generic_node(kicksoccer_t)
+
+gen_require(`
+    type kicksoccer_port_t;
+')
+allow kicksoccer_t kicksoccer_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type kicksoccer_port_t;
+')
+allow kicksoccer_t kicksoccer_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(kicksoccer_t)
+
+files_read_etc_files(kicksoccer_t)
+
+miscfiles_read_localization(kicksoccer_t)
+
+sysnet_dns_name_resolve(kicksoccer_t)
+
+allow kicksoccer_t kicksoccer_exec_t:file execute_no_trans;
+allow kicksoccer_t self:process setsched;
+corecmd_exec_ls(kicksoccer_t)
+corenet_tcp_connect_http_port(kicksoccer_t)
+dev_read_urand(kicksoccer_t)
+fs_getattr_xattr_fs(kicksoccer_t)
+kernel_read_system_state(kicksoccer_t)

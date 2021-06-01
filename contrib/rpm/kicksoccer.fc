@@ -1,0 +1,8 @@
+/usr/bin/kicksoccer-cli		--	gen_context(system_u:object_r:kicksoccer_exec_t,s0)
+/usr/sbin/kicksoccerd		--	gen_context(system_u:object_r:kicksoccer_exec_t,s0)
+/usr/lib(64)?/kicksoccer/kicksoccerd		--	gen_context(system_u:object_r:kicksoccer_exec_t,s0)
+
+/etc/kicksoccer(/.*)?		gen_context(system_u:object_r:kicksoccer_conf_t,s0)
+/var/lib/kicksoccer(/.*)?		gen_context(system_u:object_r:kicksoccer_var_lib_t,s0)
+
+(/var)?/run/kicksoccerd(/.*)?   gen_context(system_u:object_r:kicksoccer_var_run_t,s0)

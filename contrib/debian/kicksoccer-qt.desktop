@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=kicksoccer Core
+Comment=kicksoccer P2P Cryptocurrency
+Exec=kicksoccer-qt %u
+Terminal=false
+Type=Application
+Icon=kicksoccer128
+MimeType=x-scheme-handler/kicksoccer;
+Categories=Office;Finance;
+StartupWMClass=kicksoccer-qt
+Name[en_US]=kicksoccer-qt.desktop
