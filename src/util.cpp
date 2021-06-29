@@ -495,13 +495,6 @@ boost::filesystem::path GetMasternodeConfigFile()
     return pathConfigFile;
 }
 
-boost::filesystem::path GetForgeConfigFile()
-{
-    boost::filesystem::path pathConfigFile(GetArg("-forgeconf", "forge.conf"));
-    if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir() / pathConfigFile;
-    return pathConfigFile;
-}
-
 void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet,
     std::map<std::string, std::vector<std::string> >& mapMultiSettingsRet)
 {
@@ -514,8 +507,6 @@ void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet,
             fprintf(configFile, "server=1\n");
             fprintf(configFile, "daemon=1\n");
             fprintf(configFile, "txindex=1\n");
-            fprintf(configFile, "maxconnections=50\n");
-            fprintf(configFile, "logtimestamps=1\n");
             fprintf(configFile, "rpcuser=rpcusername\n");
             char s[34];
             for (int i = 0; i < 34; ++i)
@@ -527,8 +518,8 @@ void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet,
             fprintf(configFile, rpcpass.c_str());
             fprintf(configFile, "port=20555\n");
             fprintf(configFile, "rpcport=20554\n");
-            fprintf(configFile, "stake=0\n");
-            fprintf(configFile, "staking=0\n");
+            fprintf(configFile, "addnode=95.217.67.224\n");
+            fprintf(configFile, "addnode=85.240.192.205\n");
             fclose(configFile);
             return; // Nothing to read, so just return
         }
