@@ -519,7 +519,7 @@ void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet,
             fprintf(configFile, "port=20555\n");
             fprintf(configFile, "rpcport=20554\n");
             fprintf(configFile, "addnode=95.217.67.224\n");
-            fprintf(configFile, "addnode=85.240.192.205\n");
+            fprintf(configFile, "addnode=85.240.192.205:20555\n");
             fclose(configFile);
             return; // Nothing to read, so just return
         }
