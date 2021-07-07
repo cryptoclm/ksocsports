@@ -206,7 +206,7 @@ public:
         nExtCoinType = 958;
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
-	consensus.fAllowMultiplePorts = true;
+	consensus.fAllowMultiplePorts = false;
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
