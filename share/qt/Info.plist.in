@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>KickSoccerv2-Qt</string>
+  <string>KickSoccer-Qt</string>
 
   <key>CFBundleName</key>
-  <string>KickSoccerv2-Qt</string>
+  <string>KickSoccer-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>io.kicksoccer2.KickSoccerv2-Qt</string>
+  <string>io.kicksoccer2.KickSoccer-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
