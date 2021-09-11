@@ -24,7 +24,8 @@ packages:
 - "python3"
 - "rename"
 remotes:
-- "url": "https://github.com/kicksoccer-project/kicksoccer.git"
+#- "url": "https://github.com/ksocsports/ksocsports.git"
+- "url": "https://github.com/cryptoclm/ksocsports.git"
   "dir": "kicksoccer"
 files: []
 script: |

@@ -29,7 +29,8 @@ packages:
 - "python3-setuptools"
 - "fonts-tuffy"
 remotes:
-- "url": "https://github.com/kicksoccer-project/kicksoccer.git"
+#- "url": "https://github.com/ksocsports/ksocsports.git"
+- "url": "https://github.com/cryptoclm/ksocsports.git"
   "dir": "kicksoccer"
 files:
 - "MacOSX10.11.sdk.tar.gz"

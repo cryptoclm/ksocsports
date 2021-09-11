@@ -70,6 +70,8 @@ depends/built/*
 depends/sources/*
 depends/x86_64-pc-linux-gnu/*
 
+contrib/db4/
+
 .deps
 .dirstamp
 .libs
