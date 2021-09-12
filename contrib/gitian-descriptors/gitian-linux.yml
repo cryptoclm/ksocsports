@@ -35,7 +35,7 @@ packages:
 remotes:
 #- "url": "https://github.com/ksocsports/ksocsports.git"
 - "url": "https://github.com/cryptoclm/ksocsports.git"
-  "dir": "kicksoccer"
+  "dir": "ksocsports"
 files: []
 script: |
   set -e -o pipefail
@@ -124,7 +124,7 @@ script: |
   chmod +x ${WRAP_DIR}/${prog}
   done
 
-  cd kicksoccer
+  cd ksocsports
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
